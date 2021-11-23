@@ -1,0 +1,5 @@
+size of image
+centre aligned
+questions to AI chatbot
+do according to what NSS does
+Look at technical designs in next 15 days
