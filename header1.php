@@ -20,6 +20,7 @@ $email = $_SESSION['login'];
 	<li><a href="history.php">Donation History</a></li>
 			<li><a href="./frequent donors.php">Frequent Donors</a></li>
 			<li><a href="./volunteering requests.php">Publish volunteering<br> request</a></li>
+			<li><a href="./volunteering requests.php">Publish upcoming activities<br> request</a></li>
 			<li><a href="./logout.php">Logout</a></li>
 
   </ul>

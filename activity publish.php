@@ -56,40 +56,31 @@
 
   <form method='post'  action='publish.php'>
     <fieldset>
-      <legend><h1>Volunteering Advertisement</h1></legend>
+      <legend><h1>PUBLISH UPCOMING EVENTS</h1></legend>
 
     <table align='center'>
 
     <tr>
     <th>
 
-      <label for="request">Enter description of the volunteering role:</label></th>
+      <label for="request">Enter description of the event:</label></th>
 
     <th>
       <br>
       <br>
-        <textarea name="request" id="request" required></textarea>  </th>
+        <textarea name="request" id="request"></textarea>  </th>
   </tr>
       <tr>
         <th>
           <br>
           <br>
-          <label for="deadline">Enter the deadline:</label>  </th>
+          <label for="deadline">Enter date of event:</label>  </th>
       <th>
         <br>
         <br>
-        <input type='date' name="deadline" id="deadline" required></input>  </th>
+        <input type='date' name="deadline" id="deadline"></input>  </th>
     </tr>
-    <tr>
-        <th>
-          <br>
-          <br>
-          <label for="eventdate">Enter date of event:</label>  </th>
-      <th>
-        <br>
-        <br>
-        <input type='date' name="eventdate" id="eventdate" required></input>  </th>
-    </tr>
+    
     <tr>
       <th>
         <br>
@@ -99,7 +90,7 @@
       <th>
         <br>
         <br>
-        <input type="number" name="noofvol" id='noofvol' required></input> </th>
+        <input type="number" name="noofvol" id='noofvol'></input> </th>
     </tr>
 
 
