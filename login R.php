@@ -26,7 +26,7 @@ include_once('./link.php');
 	{
 		$_SESSION['action1']="*Invalid username or password";
 
-		$extra="login.php";
+		$extra="login R.php";
 	echo "<script>window.location.href='".$extra."'</script>";
 	exit();
 	}
