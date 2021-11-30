@@ -21,6 +21,7 @@ if (isset($_POST['submit'])){
 }
 else{
       echo'<script>alert("the email is already registered");</script>';
+      echo'<script> window.location.href="signup.html";</script>';
 }
 }
 

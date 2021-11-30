@@ -2,12 +2,12 @@
 session_start();
 include('dbconnection.php');
 
-$id=$_SESSION['num'] ;
+$id=$_POST['id'] ;
 if(isset($_POST['complete'])){
 $q="UPDATE donations SET status='completed' where id='$id'";
 if($out=mysqli_query($con,$q)){
-echo'<script type="text/javascript"> alert("successfully marked as complete");
-window.location.href="welcome.php"</script>';
+    echo'<script type="text/javascript"> alert("successfully marked as complete");
+    window.location.href="welcome.php"</script>';
 }
 
 

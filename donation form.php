@@ -166,7 +166,7 @@
 <option  value="clothes">select</option>
   <option  value="clothes">Clothes</option>
   <option value="fooditems">Food Items</option>
-<option value="money" id="money">Money</option>
+
 <option value="paper" id="paper">paper</option>
 <option value="E-waste" id="money">E-waste</option>
 <option  value="PLastic" id="money">plastic</option>

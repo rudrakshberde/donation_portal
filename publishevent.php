@@ -54,7 +54,7 @@
   <div>
     <br><br>  <br><br>
 
-  <form method='post'  action='publish.php'>
+  <form method='post'  action='publishev.php' enctype="multipart/form-data">
     <fieldset>
       <legend><h1>PUBLISH EVENT</h1></legend>
 
@@ -68,7 +68,17 @@
     <th>
       <br>
       <br>
-        <textarea name="headline" id="headline" required></textarea>  </th>
+        <input type="text" name="headline" id="headline">  </th>
+  </tr>
+  <tr>
+    <th>
+
+      <label for="description">Enter description of the event:</label></th>
+
+    <th>
+      <br>
+      <br>
+        <textarea name="description" id="description" required></textarea>  </th>
   </tr>
       <tr>
         <th>
@@ -84,23 +94,13 @@
         <th>
           <br>
           <br>
-          <label for="eventdate">Enter date of event:</label>  </th>
+          <label for="image">Enter image of poster:</label>  </th>
       <th>
         <br>
         <br>
-        <input type='date' name="eventdate" id="eventdate" required></input>  </th>
+        <input type="file" id="image" name="image"></input>  </th>
     </tr>
-    <tr>
-      <th>
-        <br>
-        <br>
-
-        <label for="noofvol">No of volunteers needed:</label>  </th>
-      <th>
-        <br>
-        <br>
-        <input type="number" name="noofvol" id='noofvol' required></input> </th>
-    </tr>
+    
 
 
     <tr>

@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>University Website Design - Easy Tutorials</title>
+<title></title>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
@@ -25,13 +25,13 @@
             </ul>
         </div>
         <nav>
-            <a href="index.html"><img src="images/nss2-removebg-preview-removebg-preview.jpg"></a>
+            <a href="index.php"><img src="images/nss2-removebg-preview-removebg-preview.jpg"></a>
             <div class="nav-links" id="navLinks">  
                 <i class="fa fa-close" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.php">HOME</a></li>
                     <li><a href="about.html">ABOUT US</a></li>
-                    <li><a href="activities.html">ACTIVITIES</a></li>
+                    <li><a href="activities.php">ACTIVITIES</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
                 </ul>
             </div>
@@ -61,9 +61,10 @@
                 if(mysqli_num_rows($result) > 0){
 
                   while($row = mysqli_fetch_array($result)){
+                    $imageURL = 'actposter/'.$row['image']; 
                   ?>
                 <div class="facility-col">
-                    <img src="images/library.png">
+                <img src="<?php echo $imageURL; ?>" alt="no image found" onerror="this.src='default_poster.jpeg'">
                     <h3><?php echo $row['eventtitle']?></h3>
                     <p><?php echo $row['eventdesc']?></p>
                     <h5>ORGANIZED BY:<?php echo $row['organisation']?></h5>

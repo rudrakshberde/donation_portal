@@ -3,9 +3,11 @@ session_start();
 
 
 		include('dbconnection.php');
+    
 
 $reason=$_POST['reason'];
-$task=$_SESSION['num'];
+$task=$_POST['id'];
+
 $sql = "SELECT * FROM donations WHERE  id='$task'";
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){

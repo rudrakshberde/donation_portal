@@ -28,12 +28,17 @@
 		<h1 style="text-align: center;user-select: auto;">Thank you <?php echo $dname; ?>!</h1>
 		<h3 style="text-align: center;user-select: auto;">Your Donation has been received</h3>
 		<center>
-		<a href="index.php"><button id="thankyou" class="log" >Go back to home page</button></a>
+	<button id="thankyou" class="log" onclick="goBack() ">Go back to home page</button>
 	</center>
 	</div>
 
 
-
+	<script>
+        function goBack() {
+            window.history.back();
+            window.location.replace('index.php');
+        }
+</script>
 
 
 </body>

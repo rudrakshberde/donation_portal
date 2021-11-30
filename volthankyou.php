@@ -28,11 +28,16 @@
 		<h1 style="text-align: center;user-select: auto;">Thank you <?php echo $dname; ?>!</h1>
 		<h3 style="text-align: center;user-select: auto;">Your volunteering request has been received</h3>
 		<center>
-		<a href="index.php"><button class="log" id="thankyou">Go back to home page</button></a>
+		<button class="log" id="thankyou" onclick="goBack()">Go back to home page</button>
 	</center>
 	</div>
 
-
+	<script>
+        function goBack() {
+            window.history.back();
+            window.location.replace('url');
+        }
+</script>
 
 
 

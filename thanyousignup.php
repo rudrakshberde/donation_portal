@@ -30,12 +30,17 @@
     <h3 style="text-align: center;user-select: auto;">You have been successfully registered</h3>
     <h3 style="text-align: center;user-select: auto;">Your username is:<ins><?php echo $dusername ?></ins></h3>
 		<center>
-		<a href="index.php"><button id="thankyou" class="log" >Go back to home page</button></a>
+		<button id="thankyou" class="log"onclick="goBack()" >Go back to home page</button>
 	</center>
 	</div>
 
 
-
+	<script>
+        function goBack() {
+            window.history.back();
+            window.location.replace('index.php');
+        }
+</script>
 
 
 </body>

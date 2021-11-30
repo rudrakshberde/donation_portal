@@ -49,16 +49,27 @@
   session_start();
   include_once('./link.php');
   include_once('./header1.php');
+  
  ?>
 
   <div>
     <br><br>  <br><br>
-
+   
   <form method='post'  action='publish.php'>
     <fieldset>
       <legend><h1>Volunteering Advertisement</h1></legend>
 
     <table align='center'>
+    <tr>
+    <th>
+
+      <label for="eventtitle">Enter name of event:</label></th>
+
+    <th>
+      <br>
+      <br>
+        <input Type="text" name="eventtitle" id="eventtitle" required>  </th>
+  </tr>
 
     <tr>
     <th>
@@ -74,7 +85,7 @@
         <th>
           <br>
           <br>
-          <label for="deadline">Enter the deadline:</label>  </th>
+          <label for="deadline">Enter the deadline to apply:</label>  </th>
       <th>
         <br>
         <br>

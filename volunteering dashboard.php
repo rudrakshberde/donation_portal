@@ -65,6 +65,7 @@ h1{
 <th scope="col">email</th>
 <th scope="col">contactno</th>
 <th scope="col">NSS member</th>
+<th scope="col">Event</th>
 <th scope="col">Date&Time</th>
 
 		</tr>
@@ -108,8 +109,10 @@ h1{
 												<th scope="col"> <?php echo $row['email']; ?></th>
 												<th scope="col"> <?php echo $row['number']; ?></th>
 		                      <th scope="col"><?php echo  $row['nss'];?> </th>
+							  <th scope="col"><?php echo  $row['event'];?> </th>
 
                            <th scope="col"><?php echo  $row['dt'];?> </th>
+						   
 
 
 

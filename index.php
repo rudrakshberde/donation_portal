@@ -1,3 +1,7 @@
+<?php session_start();
+                include('dbconnection.php'); 
+?>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,38 +39,39 @@
 </head>
 <body>
     <section class="header">
-        <div class="heads">
-       
-            <ul>
-                <li><a href="donation form.php"><button class="button">DONATE</button></a></li>
-                <li><a href="volunteering form.php"><button class="button">VOLUNTEER</button></a></li>
-            </ul>
-        </div>
+        
+    
+
         <nav>
-            <a href="index.html"><img src="images/nss2-removebg-preview-removebg-preview.jpg"></a>
-            <div class="nav-links" id="navLinks">  
+        
+        <div class="navimage">
+       <a href="index.html"><img style=" border-radius:50%;" src="images/nss2-removebg-preview-removebg-preview.jpg"></a> 
+       </div>
+            <div class="nav-links" id="navLinks"> 
+           
                 <i class="fa fa-close" onclick="hideMenu()"></i>
                 <ul>
                     <li><a href="index.php">HOME</a></li>
                     <li><a href="about.html">ABOUT US</a></li>
                     <li><a href="activities.php">ACTIVITIES</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
-                </ul>
+                   
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
-        
-        <div class="text-box">
+        <br>
+        <br>
+        <div class="text-box" style="margin-top:50px;">
             <h1>NSS WEBSITE VIDYALANKAR</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, aperiam!<br> THIS WEBSITE IS FOR NSS.</p>
-            <a href="about.html" class="hero-btn">Visit Us to Know More</a>
+            <p><br> THIS WEBSITE IS FOR NSS.</p>
+            <a href="donation form.php" class="hero-btn" style="margin:10px;">DONATE</a>
+            <a href="donation form.php" class="hero-btn"style="margin:10px;">VOLUNTEER</a>
         </div>
     </section>
     
 <!---------- course ----------->
     
     <section class="course">
-        <h1>OTHER THINGS WE DO</h1>
+        <h1>OUR KEY FEATURES</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <div class="row">
             <div class="course-col">
@@ -87,7 +92,7 @@
 <!---------- campus ---------->
     
     <h1 align="center">ACTIVITIES</h1>
-        <p align="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p align="center">some of the upcoming activities.</p>
     
     
     
@@ -96,7 +101,8 @@
     <section class="facility"  style="display:flex;
   flex-wrap: wrap;">
    <?php
-                include('dbconnection.php');
+   
+                
             $sql = "SELECT * FROM activities  ORDER BY date_time desc  LIMIT 3";
           ?>
   <div class="row">
@@ -107,10 +113,11 @@
                     
 
                   while($row = mysqli_fetch_array($result)){
-                    
+                    $imageURL = 'actposter/'.$row['image']; 
                   ?>
                 <div class="facility-col">
-                    <img src="images/library.png">
+                <p>event posted on:<?php echo $row['date_time']?></p>
+                <img src="<?php echo $imageURL; ?>" alt="no image found" onerror="this.src='default_poster..jpeg'">
                     <h3><?php echo $row['eventtitle']?></h3>
                     <p><?php echo $row['eventdesc']?></p>
                     <h5>ORGANIZED BY:<?php echo $row['organisation']?></h5>
@@ -127,6 +134,10 @@ mysqli_free_result($result);
                
  </div>
            
+    </section>
+    <section style="padding-left: 550px;">
+
+        <a href="activities.php"><button style="background-color:black; color:white; width:auto; height:auto; font-size:30px; border-radius:12px; padding:10px;">EXPLORE</button></a>
     </section>
 
     <section class="cta">
@@ -159,6 +170,10 @@ mysqli_free_result($result);
                 </div>
             </div>
     </section>
+    <section style="padding-left: 550px;">
+
+    <a href="activities.php"><button style="background-color:black; color:white; width:auto; height:auto; font-size:30px; border-radius:12px; padding:10px;">EXPLORE</button></a>
+    </section>
     <h1 align="center">LATEST VOLUNTEERING REQUESTS</h1>
         <p align="center">Checkout the latest volunteering opportunities posted by NGOS</p>
     
@@ -168,30 +183,57 @@ mysqli_free_result($result);
 
 
 $sql = "SELECT * FROM volunteering_advertisement ORDER BY date_time desc";
+$e;
 ?>
         
         <?php
                   if($result = mysqli_query($con, $sql)){
                       if(mysqli_num_rows($result) > 0){
+                        
 
-                        while($row = mysqli_fetch_array($result)){
+                        while($row = mysqli_fetch_assoc($result)){
+                        
+                    
                         ?>
        
             <div id="card">
                  
            
                 <div class="facility-col">
+                    <form action="volunteering form 2.php" method="post">
                 <p>Request posted on:<?php echo $row['date_time']; ?></p>
+                <input type="hidden"  name="id"value="<?php  echo $row['id'];?>"></input>
                     
-                    <h3>organisation:<ins><?php $org=explode(".",$row['organisation']);
-                               echo $org[0]; ?></ins></h3>
+                    <h3>Event name:<?php $e=$row['eventtitle'];
+                     echo $row['eventtitle'];?>
+                    </h3>
+                    
+                    <h3>organisation:<ins><?php $o=$row['organisation'];
+                     $org=explode(".",$row['organisation']);
+                               echo $org[0];
+                              ?></ins></h3>
                     <p style="width:25vw;"><?php  echo $row['volunteering_add'];  ?></p>
-                    <h5>No of volunteers re5quired:<?php  echo $row['no'];  ?></h5>
+                    <h5>No of volunteers required:<?php  echo $row['no'];  ?></h5>
                     <h4>Event Date:<?php  echo $row['eventdate'];  ?></h4>
                     <h4>Apply Before:<?php  echo $row['deadline'];  ?></h4>
+                    <?php
+                    $q="SELECT COUNT(org) AS don_count  FROM volunteer where org='$o' and event='$e';";
+   
+                    $check=mysqli_query($con,$q);
+                    $row = mysqli_fetch_assoc($check);
+                    $res=$row['don_count'];
+                    
+                    
+
+                    
+                    ?>
+                    <h4>No of applications received:<?php  echo $res  ?></h4>
+                    
+                    
                     <br>
                     <br>
-                    <p  align="center"><a href="volunteering form.php" ><button class="log" id="volunteer" >Volunteer</button></a></p>
+                    <p  align="center"><button  type="submit" class="log" id="volunteer">Volunteer</button></p>
+                    </form> 
                 </div>
                
             </div>
@@ -199,7 +241,9 @@ $sql = "SELECT * FROM volunteering_advertisement ORDER BY date_time desc";
 
 
 mysqli_free_result($result);
+mysqli_close($con);
 }
+
 } ?>
 
     </section>
@@ -207,7 +251,7 @@ mysqli_free_result($result);
 <section class="cta">
     
        <h1>THIS PROTAL IS ONLY FOR THE REGISTERED NGOS AND STAFF MEMBERS OF NSS</h1>
-        <a href="login R.php" class="hero-btn">NGO LOGIN</a>
+        <a href="login R.php" class="hero-btn" target="_blank">NGO LOGIN</a>
     
 </section>    
  
