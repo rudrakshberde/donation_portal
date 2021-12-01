@@ -22,10 +22,13 @@ $res=$row['don_count'];
 
 if($res>=3){
   $query="DELETE from volunteering_advertisement where organisation='$organisation' LIMIT 1";
+  
+  
   if($del=mysqli_query($con,$query)){
     $que="INSERT into volunteering_advertisement(organisation,volunteering_add,deadline,no,eventdate,eventtitle) VALUES('$organisation','$advertisement','$deadline','$novol','$eventdate','$eventtitle')";
     if($exec=mysqli_query($con,$que)){
-  
+      
+      
       echo '<script type="text/JavaScript">
            alert("Your request has been published successfully");
            window.location.href = "volunteering requests.php";
@@ -39,6 +42,7 @@ if($res>=3){
     }
   }
 }
+
 
   else{
     $que="INSERT into volunteering_advertisement(organisation,volunteering_add,deadline,no,eventdate,eventtitle) VALUES('$organisation','$advertisement','$deadline','$novol','$eventdate','$eventtitle')";

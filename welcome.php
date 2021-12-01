@@ -85,7 +85,7 @@ if(!$filter){
 }
 
 		// Attempt select query execution
-		$sql = "SELECT * FROM donations WHERE organisation ='$filter' AND status='pending'";
+		$sql = "SELECT * FROM donations WHERE organisation ='$filter' AND status='pending' ORDER BY time desc";
 		if($result = mysqli_query($con, $sql)){
 		    if(mysqli_num_rows($result) > 0){
 
@@ -107,7 +107,7 @@ if(!$filter){
 													 <input type="hidden" name="id" id="id" value="<?php echo$row['id'];?>"></input>
 													   
 														<th scope="col"> <button type="submit" class="btn btn-primary" style="background-color:green;"  formaction="reason.php" >Discard<br>/Decline</button>
-															<th scope="col"> <button type="submit" class="btn btn-primary" id="completed"  onclick="con()" name="complete"  formaction="reason.php"   style="background-color:green;" >Mark <br> as  complete</button>
+															<th scope="col"> <button type="submit" class="btn btn-primary" id="completed"  name="complete"  formaction="confirm.php"   style="background-color:green;" >Mark <br> as  complete</button>
 														</th>
 
 													</tr>

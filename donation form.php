@@ -17,9 +17,10 @@
     </script>
     <style>
     body{
-      background-color:#61ED1C;
-      background-image:
-
+      
+      background-image:url('images/pexels-harsha-vardhan-2940334.jpg');
+      background-size:cover;
+     
 }
 
 
@@ -46,7 +47,7 @@
     .log{
     width:100px;
     height:40px;
-    background-color:green;
+    background-color:black;
     border:none;
     color:white;
     }
@@ -79,10 +80,13 @@
                                            </div>
                                            <div class="modal-body">
                                                <ul>
-                                                 <li>make sure the items to be donated are in good condition</li>
-                                                 <li>uploading the image of the item is mandatory</li>
-                                                 <li>the image size should not be greater than 60KB</li>
-                                                 <li>You will be contacted by the logistics person for picking up the item(incase of Donation of Items)</li>
+                                                 <li>MAKE SURE THE ITEM IS IN GOOD CONDITION</li>
+                                                 <br>
+                                                 <li>UPLOADING THE IMAGE OF THE ITEM IS MANDATORY</li>
+                                                 <br>
+                                                 <li>the IMAGE SIZE SHOULD NOT BE GREATER THAN 60KB</li>
+                                                 <br>
+                                                 <li>YOU WILL BE CONTACTED BY THE LOGISTICS PERSON SOON(INCASE OF DONATION OF ITEMS)</li>
 
                                                </ul>
                                            </div>
@@ -96,7 +100,7 @@
                            </div>
     <form action="check.php" method="post" enctype="multipart/form-data">
       <fieldset align="center">
-      <legend><h2 style="color:#61ED1C;">Donation Form</h2>
+      <legend><h2 style="color:black;">Donation Form</h2>
        </legend>
 
        <table align="center">

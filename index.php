@@ -64,7 +64,7 @@
             <h1>NSS WEBSITE VIDYALANKAR</h1>
             <p><br> THIS WEBSITE IS FOR NSS.</p>
             <a href="donation form.php" class="hero-btn" style="margin:10px;">DONATE</a>
-            <a href="donation form.php" class="hero-btn"style="margin:10px;">VOLUNTEER</a>
+            <a href="volunteering form.php" class="hero-btn"style="margin:10px;">VOLUNTEER</a>
         </div>
     </section>
     
@@ -118,9 +118,10 @@
                 <div class="facility-col">
                 <p>event posted on:<?php echo $row['date_time']?></p>
                 <img src="<?php echo $imageURL; ?>" alt="no image found" onerror="this.src='default_poster..jpeg'">
-                    <h3><?php echo $row['eventtitle']?></h3>
+                    <h3><?php echo strtoupper($row['eventtitle']);?></h3>
                     <p><?php echo $row['eventdesc']?></p>
-                    <h5>ORGANIZED BY:<?php echo $row['organisation']?></h5>
+                    <h5>ORGANIZED BY:<?php $orga=explode(".",$row['organisation']);
+                    echo strtoupper($orga['0']);?></h5>
                        <h5>EVENT DATE:<?php echo $row['date']?></h5>
 
                 </div>
@@ -154,25 +155,25 @@ mysqli_free_result($result);
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <div class="row">
                 <div class="facility-col">
-                    <img src="images/library.png">
-                    <h3>World Class Library</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquet turpis nulla.</p>
+                    <img src="image1.jpeg">
+                    <h3>NGO 1</h3>
+                    <p>this organisation works in educating rural and uderpriviledged children</p>
                 </div>
                 <div class="facility-col">
-                    <img src="images/basketball.png">
-                    <h3>Largest Play Ground</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquet turpis nulla.</p>
+                    <img src="image2.jpeg">
+                    <h3>NGO 2</h3>
+                    <p>this organisation works in children and women empowerment</p>
                 </div>
                 <div class="facility-col">
-                    <img src="images/cafeteria.png">
-                    <h3>Tasty and Healthy Food</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquet turpis nulla.</p>
+                    <img src="image6.jpeg">
+                    <h3>NGO 3</h3>
+                    <p>this organisation works towards helping the elderly</p>
                 </div>
             </div>
     </section>
     <section style="padding-left: 550px;">
 
-    <a href="activities.php"><button style="background-color:black; color:white; width:auto; height:auto; font-size:30px; border-radius:12px; padding:10px;">EXPLORE</button></a>
+    <a href="otherorg.html"><button style="background-color:black; color:white; width:auto; height:auto; font-size:30px; border-radius:12px; padding:10px;">EXPLORE</button></a>
     </section>
     <h1 align="center">LATEST VOLUNTEERING REQUESTS</h1>
         <p align="center">Checkout the latest volunteering opportunities posted by NGOS</p>

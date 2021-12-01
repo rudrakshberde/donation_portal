@@ -15,7 +15,7 @@
     <title>Volunteer form</title>
 </head>
 <body style="background-color:#61ED1C;">
-<form action=" " method="POST">
+<form action="volinsert.php" method="POST">
 
 <div class="wrapper">
     <div class="title">
@@ -81,7 +81,7 @@ mysqli_free_result($result);
      <div class="inputfield">
         <label>Event</label>
         <div class="custom_select">
-          <select class="" name="org">
+          <select class="" name="event">
 <option value="">Select</option>
 
           <?php
@@ -140,35 +140,7 @@ mysqli_free_result($result);
 </div>
 
 </form>
-<?php
 
-
-if(isset($_POST['submit'])){
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $exp = $_POST['expert'];
-    $org = $_POST['org'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $address = $_POST['address'];
-  $nss = $_POST['nss'];
-
-
-  $insertquery=" INSERT INTO volunteer( firstname, lastname,experience,org,email,number,address,nss) VALUES ('$firstname','$lastname','$exp','$org','$email','$phone','$address','$nss') ";
-  $_SESSION['name']=$_POST['firstname'];
-
-   if ($result=mysqli_query($con,$insertquery)){
-     echo'<script>window.location.href="volthankyou.php";</script>';
-
-
-
-     }
-     else{
-       echo"failure";
-     }
-   }
-
-      ?>
 
 
 </body>

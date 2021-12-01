@@ -35,7 +35,7 @@
 	<script>
         function goBack() {
             window.history.back();
-            window.location.replace('url');
+            window.location.replace('index.php');
         }
 </script>
 

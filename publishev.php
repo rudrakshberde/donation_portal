@@ -21,6 +21,21 @@ if(isset($_POST['publish'])){
               $filenewname=uniqid('',true).".".$fileactualext;
               $filedestination='actposter/'.$filenewname;
          move_uploaded_file($tempname,$filedestination);
+         $res=0;
+    
+    
+    $q="SELECT COUNT(organisation) AS don_count  FROM activities where organisation='$organisation';";
+   
+$check=mysqli_query($con,$q);
+$row = mysqli_fetch_assoc($check);
+$res=$row['don_count'];
+
+
+if($res>=3){
+  $query="DELETE from activities where organisation='$organisation' LIMIT 1";
+  
+  
+  if($del=mysqli_query($con,$query)){
               $sql="INSERT INTO activities (eventtitle,organisation,eventdesc,date,image)VALUES('$headline','$organisation','$description','$eventdate','$filenewname')";
               if(mysqli_query($con,$sql)){
                 echo '<script type="text/JavaScript">
@@ -30,11 +45,28 @@ if(isset($_POST['publish'])){
                 </script>'  ;
 
                 
-                } else{
+                } 
+            }
+          }
+          else{
+            $sql="INSERT INTO activities (eventtitle,organisation,eventdesc,date,image)VALUES('$headline','$organisation','$description','$eventdate','$filenewname')";
+            if(mysqli_query($con,$sql)){
+              echo '<script type="text/JavaScript">
+              alert("Your request has been published successfully");
+              window.location.href = "publishevent.php";
+              
+              </script>'  ;
 
-                  echo "<h1>oops!something went wrong,please try again</h1>";
-              }
+              
+              } else{
 
+                echo "<h1>oops!something went wrong,please try again</h1>";
+            }
+
+
+
+
+          }
 
             }else{
               echo '<script>alert("Your file size  should not extend 50kb");

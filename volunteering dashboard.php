@@ -1,7 +1,18 @@
-<!--
-Into this file, we create a layout for welcome page.
--->
+<?php
+session_start();
+include_once('./link.php');
+include_once('./header1.php');
+include('dbconnection.php');
+include('DBController.php');
+$db_handle = new DBController();
+error_reporting(E_ERROR | E_PARSE);
 
+
+		$filter=$_SESSION['login'];
+		if(!$filter){
+			echo '<script>window.location.href="index.php"</script>';
+		}
+?>
 
 
 <!DOCTYPE html>
@@ -50,9 +61,41 @@ h1{
 
 
 <h1 style="margin:40px;">Volunteering requests</h1>
+<form method="POST" name="search" action="volunteering dashboard.php" style="margin-left:70px;">
+<label>CHOOSE EVENT</label>
+    
+          <select class="" name="country[]">
+<option value="">Select</option>
+
+<?php $que="SELECT * from volunteering_advertisement WHERE organisation='$filter'";
+          if($res= mysqli_query($con, $que)){
+
+
+            while($row = mysqli_fetch_array($res)){
+            ?>
+
+
+
+
+
+        <option value="<?php echo $row['eventtitle'] ?>"> <?php echo $row['eventtitle'] ?></option>';
+
+
+      <?php
+
+      }
+      ?>
+      </select>
+      <?php
+mysqli_free_result($res);
+      }
+      
+      ?>
+	  <button id="Filter"  class="btn btn-primary " style="background-color:green;">Search</button>
+</form>
 
 <div class="container my-4">
-	<form enctype="multipart/form-data" method="post" action="">
+
 	<table class="table" id="myTable">
 		<thead>
 			<tr>
@@ -70,36 +113,63 @@ h1{
 
 		</tr>
 		<?php
-		session_start();
-		include_once('./link.php');
-		include_once('./header1.php');
+		
+		if (! empty($_POST['country'])) {
+			
+		
+		
+                    $query = "SELECT * from volunteer";
+                    $i = 0;
+                    $selectedOptionCount = count($_POST['country']);
+                    $selectedOption = "";
+                    while ($i < $selectedOptionCount) {
+                        $selectedOption = $selectedOption . "'" . $_POST['country'][$i] . "'";
+                        if ($i < $selectedOptionCount - 1) {
+                            $selectedOption = $selectedOption . ", ";
+                        }
+                        
+                        $i ++;
+                    }
+                    $query = $query . " WHERE event in (" . $selectedOption . ") AND org='$filter'ORDER BY ID DESC";
+                    
+                    $result = $db_handle->runQuery($query);
+            
+                if (! empty($result)) {
+                    foreach ($result as $key => $value) {
+                        ?>
+		            <tr>
+		                <th scope="col"><?php echo $result[$key]['firstname']; ?> </th>
+		                <th scope="col"> <?php echo $result[$key]['lastname']; ?></th>
+		                <th scope="col"> <?php echo $result[$key]['experience']; ?></th>
+		                    <th scope="col"> <?php echo $result[$key]['address']; ?></th>
+												<th scope="col"> <?php echo $result[$key]['email']; ?></th>
+												<th scope="col"> <?php echo $result[$key]['number']; ?></th>
+		                      <th scope="col"><?php echo $result[$key]['nss']; ?> </th>
+							  <th scope="col"><?php echo $result[$key]['event']; ?> </th>
 
-				error_reporting(E_ERROR | E_PARSE);
+                           <th scope="col"><?php echo $result[$key]['dt']; ?> </th>
+						   
 
 
 
-		$link = mysqli_connect("localhost", "root", "", "donations");
 
-		// Check connection
-		if($link === false){
-		    die("ERROR: Could not connect. " . mysqli_connect_error());
-		}
+		            </tr>
+					<?php
+                    }
+				}
+                    ?>
 
+		
+		
+<?php
+                }
+                 
+				else{
+					$sql = "SELECT * FROM volunteer WHERE org='$filter' ORDER BY ID desc" ;
+		if($r = mysqli_query($con, $sql)){
+		    if(mysqli_num_rows($r) > 0){
 
-
-		$filter=$_SESSION['login'];
-		if(!$filter){
-			echo '<script>window.location.href="index.php"</script>';
-		}
-
-
-
-		// Attempt select query execution
-		$sql = "SELECT * FROM volunteer WHERE org='$filter' ORDER BY ID desc" ;
-		if($result = mysqli_query($link, $sql)){
-		    if(mysqli_num_rows($result) > 0){
-
-		        while($row = mysqli_fetch_array($result)){
+		        while($row = mysqli_fetch_array($r)){
 							?>
 		            <tr>
 		                <th scope="col"><?php  echo $row['firstname'];  ?> </th>
@@ -110,9 +180,7 @@ h1{
 												<th scope="col"> <?php echo $row['number']; ?></th>
 		                      <th scope="col"><?php echo  $row['nss'];?> </th>
 							  <th scope="col"><?php echo  $row['event'];?> </th>
-
                            <th scope="col"><?php echo  $row['dt'];?> </th>
-						   
 
 
 
@@ -121,7 +189,7 @@ h1{
 		       <?php   }
 
 		        // Close result set
-		        mysqli_free_result($result);
+		        mysqli_free_result($r);
 		    } else{
 		        echo "No records matching your query were found.";
 		    }
@@ -129,28 +197,21 @@ h1{
 		    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 		}
 
-		// Close connection
-		mysqli_close($link);
+		
 		?>
-
-		<?php
-	if (isset($_POST['complete'])){
-
-			   header('location:delete.php');
-
-
-	}	 ?>
-
+			<?php		
+				}
+?>
 
 </thead>
 
 				</table>
-</form>
+				
 
 
 
 
-    <tbody>
+			</tbody>
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

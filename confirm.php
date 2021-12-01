@@ -13,24 +13,23 @@
 </script>
 </head>
 <body>
-<form action="discard.php" method="post">
+<form action="completed.php" method="post">
 <div id="myModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">ENTER THE REASON TO DECLINE THE ITEM</h5>
+                <h5 class="modal-title">CONFIRM</h5>
              <button type="button" class="close" data-dismiss="modal"  onclick="goBack()">&times;</button>
             </div>
             <div class="modal-body">
 				
-                
-                   
-                    <div class="form-group">
-                    <textarea name='reason'style="width:400px;"></textarea>
+            <div class="form-group">
+            <h5>ARE YOU SURE YOU WANT TO MARK IT AS COMPLETE?</h5>
                     </div>
+                   
                     <input type="hidden" name="id" value="<?php echo $_POST['id'];?>"></input>
-                    <button type="button" class="btn btn-primary" style="background-color:green;color:white"onclick="goBack()" >Go Back</button>
-                    <button type="submit" class="btn btn-primary"  style="background-color:green;color:white">Submit</button>
+                    <button type="button" class="btn btn-primary" style="background-color:green;color:white"onclick="goBack()" >NO</button>
+                    <button type="submit" class="btn btn-primary"  style="background-color:green;color:white">YES</button>
                 
             </div>
         </div>
