@@ -74,7 +74,7 @@
 
 
 		// Attempt select query execution
-		$sql = "SELECT *,count(email) AS donor_count  FROM donations WHERE organisation='$filter'GROUP BY contactno and email ORDER BY COUNT(email)  DESC ";
+		$sql = "SELECT *,count(id) AS donor_count  FROM donations WHERE organisation='$filter'GROUP BY contactno ORDER BY COUNT(id) DESC ";
 		if($result = mysqli_query($con, $sql)){
 		    if(mysqli_num_rows($result) > 0){
 

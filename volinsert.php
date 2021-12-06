@@ -1,5 +1,7 @@
 <?php
+session_start();
 include('dbconnection.php');
+
 
 if(isset($_POST['submit'])){
     $firstname = $_POST['firstname'];
@@ -14,7 +16,7 @@ if(isset($_POST['submit'])){
 
 
   $insertquery=" INSERT INTO volunteer( firstname, lastname,experience,org,email,number,address,nss,event) VALUES ('$firstname','$lastname','$exp','$org','$email','$phone','$address','$nss','$event') ";
-  $_SESSION['name']=$_POST['firstname'];
+  $_SESSION['nam']=$_POST['firstname'];
 
    if ($result=mysqli_query($con,$insertquery)){
      echo'<script>window.location.href="volthankyou.php";</script>';

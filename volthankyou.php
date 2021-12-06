@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width-device-width, initial-scale=1.0">
 	<?php
   session_start();
-	$dname=$_SESSION['name']; ?>
+	$dname=$_SESSION['nam']; ?>
 	<style media="screen">
 	.log{
 	width:300px;
