@@ -25,7 +25,7 @@
             </ul>
         </div>
         <nav>
-            <a href="index.php"><img src="images/nss2-removebg-preview-removebg-preview.jpg"></a>
+            <a href="index.php"><img  style=" border-radius:50%;"src="images/nss2-removebg-preview-removebg-preview.jpg"></a>
             <div class="nav-links" id="navLinks">  
                 <i class="fa fa-close" onclick="hideMenu()"></i>
                 <ul>
@@ -42,7 +42,7 @@
     
     
     <h1 align="center">ACTIVITIES</h1>
-        <p align="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p align="center">All the latest activities posted by NGOS.</p>
     
     
     
@@ -67,7 +67,9 @@
                 <img src="<?php echo $imageURL; ?>" alt="no image found" onerror="this.src='default_poster.jpeg'">
                     <h3><?php echo $row['eventtitle']?></h3>
                     <p><?php echo $row['eventdesc']?></p>
-                    <h5>ORGANIZED BY:<?php echo $row['organisation']?></h5>
+                    <h5>ORGANIZED BY:<?php $org=strtoupper($row['organisation']);
+                     $o=explode(".",$org);
+                   echo $o[0]; ?></h5>
                        <h5>EVENT DATE:<?php echo $row['date']?></h5>
 
                 </div>

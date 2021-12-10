@@ -76,15 +76,15 @@
         <div class="row">
             <div class="course-col">
                 <h3>DONATE</h3>
-                <p>Donate clothes,food,etc to the ones in need via various NGOS.</p>
+                <p>Readily donate clothing items, food or other options in order to help underprivileged people through NSS or an NGO of your choice. </p>
             </div>
             <div class="course-col">
                 <h3>VOLUNTEER</h3>
-                <p>Volunteer for various drives and events for different NGOS working in different fields.</p>
+                <p>Contribute to the community by helping the ones in need through volunteering for various upcoming activities for different NGOs</p>
             </div>
             <div class="course-col">
                 <h3>EXPLORE</h3>
-                <p>explore and get to know more about different NGOS and the events that they organize.</p>
+                <p>Discover and explore several NGOs, gaining information about them in order to help you select the right NGO or to increase awareness.</p>
             </div>
         </div>
     </section>
@@ -98,8 +98,7 @@
     
 
     
-    <section class="facility"  style="display:flex;
-  flex-wrap: wrap;">
+    <section class="facility"  >
    <?php
    
                 
