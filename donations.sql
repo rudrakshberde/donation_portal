@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2021 at 03:41 PM
+-- Generation Time: Dec 13, 2021 at 02:23 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -35,6 +35,13 @@ CREATE TABLE `activities` (
   `eventdesc` varchar(400) DEFAULT NULL,
   `image` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `activities`
+--
+
+INSERT INTO `activities` (`date`, `organisation`, `eventtitle`, `date_time`, `eventdesc`, `image`) VALUES
+('2021-12-09', 'nss.8213', 'food donation', '2021-12-07 15:43:49', 'description', '61af33dd64a749.26233646.jpg');
 
 -- --------------------------------------------------------
 
@@ -136,7 +143,8 @@ CREATE TABLE `volunteer` (
 INSERT INTO `volunteer` (`ID`, `firstname`, `lastname`, `experience`, `org`, `email`, `number`, `address`, `nss`, `dt`, `event`) VALUES
 (1, 'Rudraksh', 'Berde', 'yes', 'nss.8213', 'example@gmail.com', 1234567890, 'a/8 rose villa,\r\nM.G Road,\r\nFort.', 'yes', '2021-12-01 18:45:54', 'food distribution drive'),
 (2, 'Navya ', 'shetty', 'yes', 'nss.8213', 'example@gmail.com', 1234567890, 'A/8 Rose Villa,\r\nM.G Road,\r\nFort.', 'yes', '2021-12-01 18:50:07', 'food distribution drive'),
-(8, 'Atharva ', 'Suryawanshi', 'yes', 'nss.8213', 'example@gmail.com', 1234567899, '604,PRABHAVINAYAK CHS,NEW PRABHADEVI ROAD', 'no', '2021-12-01 19:13:32', 'food distribution drive');
+(8, 'Atharva ', 'Suryawanshi', 'yes', 'nss.8213', 'example@gmail.com', 1234567899, '604,PRABHAVINAYAK CHS,NEW PRABHADEVI ROAD', 'no', '2021-12-01 19:13:32', 'food distribution drive'),
+(9, 'example', 'lastname', '', 'nss.8213', 'rudraksh.berde@gmail', 2147483647, '604,PRABHAVINAYAK CHS,NEW PRABHADEVI ROAD', 'yes', '2021-12-07 15:46:25', 'food distribution drive');
 
 -- --------------------------------------------------------
 
@@ -225,7 +233,7 @@ ALTER TABLE `donations`
 -- AUTO_INCREMENT for table `volunteer`
 --
 ALTER TABLE `volunteer`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `volunteering_advertisement`
